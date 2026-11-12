@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Creates the content view, the toolbar, and the floating action button.
-     *
+     * <p>
      * This method is provided in the Basic Activity template.
      *
      * @param savedInstanceState Saved instance state bundle.
@@ -56,14 +56,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,
-                        OrderActivity.class);
-                intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
-                startActivity(intent);
-            }
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this,
+                    OrderActivity.class);
+            intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
+            startActivity(intent);
         });
     }
 
